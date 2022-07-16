@@ -34,7 +34,7 @@ class SfrAuthentication
      * @param string $username The username
      * @param string $password The password
      * @return string The created access token
-     * @throws Exception An exception if an error occurs, if the credentials are invalid for example.
+     * @throws SfrException An exception if an error occurs, if the credentials are invalid for example.
      */
     public function authenticate(string $username, string $password): string
     {
@@ -50,10 +50,10 @@ class SfrAuthentication
             ]);
         } catch (GuzzleException $exception) {
             // TODO : Handle GuzzleException
-            throw new Exception("Handling GuzzleException is not yet implemented", $previous = $exception);
+            throw new SfrException("Handling GuzzleException is not yet implemented", 0, $exception);
         }
 
         // TODO : Implement authenticate function
-        throw new Exception("Function authenticate is not yet implemented");
+        throw new SfrException("Function authenticate is not yet implemented");
     }
 }
