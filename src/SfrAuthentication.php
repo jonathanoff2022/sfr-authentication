@@ -70,7 +70,8 @@ class SfrAuthentication
             throw new SfrException("Handling GuzzleException is not yet implemented", 0, $exception);
         }
 
-        // TODO : Implement authenticate function
-        throw new SfrException("Function authenticate is not yet implemented");
+        // Here, the response status code is 2xx
+        // TODO : Parse token of response
+        return "TODO-parse-token";
     }
 }
