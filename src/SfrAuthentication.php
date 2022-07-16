@@ -3,15 +3,20 @@
 namespace Sfr;
 
 use Exception;
+use GuzzleHttp\Client;
 
 class SfrAuthentication
 {
+    private Client $client;
+
     /**
      * @param string|null $proxy The proxy to use or null
      */
     public function __construct(?string $proxy = null)
     {
-        // TODO : Initialize HTTP client
+        $this->client = new Client([
+            'proxy' => $proxy
+        ]);
     }
 
     /**
