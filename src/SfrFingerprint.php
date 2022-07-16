@@ -4,12 +4,21 @@ class SfrFingerprint
 {
     private const HEXADECIMAL_ALPHABET = "0123456789abcdef";
 
+    private static function generateBrand(): string {
+        // TODO : Generate brand
+        return "BRAND";
+    }
+
+    private static function generateModelNumber(): string {
+        return "MODEL-NUMBER";
+    }
+
     public static function generateFingerprint(): string
     {
         // Format : $brand | $modelNumber | $id
 
-        $brand = "BRAND";
-        $modelNumber = "MODEL-NUMBER";
+        $brand = self::generateBrand();
+        $modelNumber = self::generateModelNumber();
 
         try {
             $id = bin2hex(random_bytes(8));
