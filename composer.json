@@ -14,5 +14,7 @@
             "email": "jonathanoff2022@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^8"
+    }
 }
