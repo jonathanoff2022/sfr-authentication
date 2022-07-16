@@ -11,10 +11,17 @@ final class SfrFingerprintTest extends TestCase
     /**
      * @return void
      * @test
+     * @dataProvider fingerprintProvider
      */
-    public function checkFormat(): void
+    public function checkFormat(string $fingerprint): void
     {
-        $fingerprint = SfrFingerprint::generateFingerprint();
         $this->assertEquals(1, preg_match(self::FINGERPRINT_FORMAT_REGEX, $fingerprint), "Fingerprint did not matched the regex");
+    }
+
+    private function fingerprintProvider(): array
+    {
+        return [
+            SfrFingerprint::generateFingerprint()
+        ];
     }
 }
