@@ -7,6 +7,14 @@ use Exception;
 class SfrAuthentication
 {
     /**
+     * @param string|null $proxy The proxy to use or null
+     */
+    public function __construct(?string $proxy = null)
+    {
+        // TODO : Initialize HTTP client
+    }
+
+    /**
      * Create SFR token using the given username and password, otherwise throw an exception
      *
      * @param string $username The username
