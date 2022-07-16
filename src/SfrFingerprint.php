@@ -14,7 +14,6 @@ class SfrFingerprint
     }
 
     private static function generateId(): string {
-
         try {
             return bin2hex(random_bytes(8));
         } catch (Exception $exception) {
