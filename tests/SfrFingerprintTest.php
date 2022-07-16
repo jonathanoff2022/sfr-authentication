@@ -12,6 +12,6 @@ final class SfrFingerprintTest extends TestCase
     public function checkFormat(): void
     {
         $fingerprint = SfrFingerprint::generateFingerprint();
-        assertEquals(preg_match(self::FINGERPRINT_FORMAT_REGEX, $fingerprint), 1, "Fingerprint did not matched the regex");
+        $this->assertEquals(1, preg_match(self::FINGERPRINT_FORMAT_REGEX, $fingerprint), "Fingerprint did not matched the regex");
     }
 }
