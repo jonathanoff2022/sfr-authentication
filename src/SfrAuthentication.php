@@ -2,10 +2,11 @@
 
 namespace SfrAuthentication;
 
-use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Utils;
 
 class SfrAuthentication
 {
@@ -48,6 +49,22 @@ class SfrAuthentication
                 ],
                 'query' => ['duration' => self::TOKEN_DURATION]
             ]);
+        } catch (ClientException $exception) {
+            $content = Utils::jsonDecode($exception->getResponse()->getBody(), true);
+            $result = $content['createToken'];
+
+            $code = $result['code'];
+            $message = $result['message'];
+
+            if (strcmp('BAD_CREDENTIALS_EXCEPTION', $code) == 0) {
+                throw new SfrAuthenticationException(
+                    SfrAuthenticationException::INVALID_CREDENTIALS, $message,
+                    0, $exception
+                );
+            }
+
+            // Unknown authentication result code
+            throw new SfrException("Unknown authentication result code", 0, $exception);
         } catch (GuzzleException $exception) {
             // TODO : Handle GuzzleException
             throw new SfrException("Handling GuzzleException is not yet implemented", 0, $exception);
