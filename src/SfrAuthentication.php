@@ -5,6 +5,7 @@ namespace Sfr;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\HandlerStack;
 use SfrFingerprint;
 
 class SfrAuthentication
@@ -18,11 +19,13 @@ class SfrAuthentication
 
     /**
      * @param string|null $proxy The proxy to use or null
+     * @param HandlerStack|null $httpHandlerStack Stack of handlers for the HTTP client
      */
-    public function __construct(?string $proxy = null)
+    public function __construct(?string $proxy = null, ?HandlerStack $httpHandlerStack = null)
     {
         $this->client = new Client([
-            'proxy' => $proxy
+            'proxy' => $proxy,
+            'handler' => $httpHandlerStack
         ]);
     }
 
