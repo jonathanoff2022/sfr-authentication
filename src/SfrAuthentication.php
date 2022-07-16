@@ -43,7 +43,8 @@ class SfrAuthentication
                     'Secret' => base64_encode('SFRETMoiAndroidV1:windows1980'),
                     'Fingerprint' => base64_encode(SfrFingerprint::generateFingerprint()),
                     'User-Agent' => self::USER_AGENT
-                ]
+                ],
+                'query' => ['duration' => self::TOKEN_DURATION]
             ]);
         } catch (GuzzleException $exception) {
             // TODO : Handle GuzzleException
