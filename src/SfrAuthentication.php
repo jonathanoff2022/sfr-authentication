@@ -1,12 +1,11 @@
 <?php
 
-namespace Sfr;
+namespace SfrAuthentication;
 
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\HandlerStack;
-use SfrFingerprint;
 
 class SfrAuthentication
 {

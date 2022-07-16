@@ -1,5 +1,9 @@
 <?php
 
+namespace SfrAuthentication;
+
+use Exception;
+
 class SfrFingerprint
 {
     private const HEXADECIMAL_ALPHABET = "0123456789abcdef";
