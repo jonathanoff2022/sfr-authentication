@@ -1,8 +1,7 @@
 <?php
 
-namespace SfrAuthentication;
-
 use PHPUnit\Framework\TestCase;
+use SfrAuthentication\SfrFingerprint;
 
 final class SfrFingerprintTest extends TestCase
 {
