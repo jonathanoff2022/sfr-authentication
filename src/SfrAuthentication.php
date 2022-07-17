@@ -61,6 +61,12 @@ class SfrAuthentication
                     SfrAuthenticationException::INVALID_CREDENTIALS, $message,
                     0, $exception
                 );
+            } else if (strcmp('ACCOUNT_LOCKED_EXCEPTION', $code) == 0) {
+                // Here, the given account has got too many failed auth attempts, the account is locked
+                throw new SfrAuthenticationException(
+                    SfrAuthenticationException::ACCOUNT_LOCKED, $message,
+                    0, $exception
+                );
             }
 
             // Unknown authentication result code

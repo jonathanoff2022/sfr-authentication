@@ -6,7 +6,10 @@ use Throwable;
 
 class SfrAuthenticationException extends SfrException
 {
+    // See com.altice.android.services.account.sfr.remote.CasAuthSFR$Companion$errorCodeTable$1
+
     public const INVALID_CREDENTIALS = 1;
+    public const ACCOUNT_LOCKED = 2;
 
     public int $authenticationResult;
 
