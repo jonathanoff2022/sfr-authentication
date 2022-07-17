@@ -23,7 +23,7 @@ final class SfrAuthenticationTest extends TestCase
             new Response(403, [], '{"createToken":{"code":"BAD_CREDENTIALS_EXCEPTION","message":"Bad credentials for login : ' . $username . '"}}'),
         ]);
 
-        $service = new SfrAuthentication(null, HandlerStack::create($mockHandler));
+        $service = new SfrAuthentication(null, true, HandlerStack::create($mockHandler));
 
         try {
             $token = $service->authenticate($username, $password);
@@ -48,7 +48,7 @@ final class SfrAuthenticationTest extends TestCase
             new Response(403, [], '{"createToken":{"code":"ACCOUNT_LOCKED_EXCEPTION","message":"Account locked for login : ' . $username . '"}}'),
         ]);
 
-        $service = new SfrAuthentication(null, HandlerStack::create($mockHandler));
+        $service = new SfrAuthentication(null, true, HandlerStack::create($mockHandler));
 
         try {
             $token = $service->authenticate($username, $password);
