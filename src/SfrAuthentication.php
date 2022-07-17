@@ -43,7 +43,7 @@ class SfrAuthentication
             $response = $this->client->get(self::CREATE_TOKEN_URL, [
                 'auth' => [$username, $password],
                 'headers' => [
-                    'Secret' => 'Basic' . base64_encode('SFRETMoiAndroidV1:windows1980'),
+                    'Secret' => 'Basic ' . base64_encode('SFRETMoiAndroidV1:windows1980'),
                     'Fingerprint' => base64_encode(SfrFingerprint::generateFingerprint()),
                     'User-Agent' => self::USER_AGENT
                 ],
