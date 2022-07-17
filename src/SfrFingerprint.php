@@ -28,7 +28,7 @@ class SfrFingerprint
             $id = '';
 
             $hexAlphabetLen = strlen(self::HEXADECIMAL_ALPHABET);
-            for ($index = 0; $index < 8; $index++) {
+            for ($index = 0; $index < 16; $index++) {
                 $id .= self::HEXADECIMAL_ALPHABET[rand(0, $hexAlphabetLen)];
             }
 
